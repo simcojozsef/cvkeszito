@@ -1,0 +1,119 @@
+/* Form card */
+.createcv-form-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.createcv-form-card h1 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Personal form inputs */
+.personal-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-form input,
+.personal-form textarea {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.personal-form input:focus,
+.personal-form textarea:focus {
+  border-color: #000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.personal-form textarea {
+  resize: vertical;
+}
+
+/* Image preview */
+.image-preview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Form button */
+.personal-form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.personal-form button:hover {
+  background-color: #333;
+}
+
+/* Message */
+.createcv-form-card p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+}
+
+.introduction {
+    height:200px;
+}
+.profile-picture-label {
+    font-size:18px;
+    font-weight:700; 
+    display:flex;
+}
+
+.personal-data-label {
+    font-size:18px;
+    font-weight:700; 
+    display:flex;
+}
+
+.profile-picture-markup {
+  font-size:14px; 
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+#acceptedTerms {
+  width: 20px;
+  height: 20px;
+}
+label {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+.terms-checkbox {
+  margin-top: 10px;
+  display: flex;
+  align-items: left;
+}
+
+.terms-checkbox input {
+  margin-right: 10px;
+}

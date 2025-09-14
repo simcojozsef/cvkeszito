@@ -1,0 +1,70 @@
+.footer {
+  background: linear-gradient(90deg, #626ccc, darkcyan);
+  color: #fff;
+  padding: 2rem 2rem 2rem 2rem;
+  position: relative; /* ensures it's above particles */
+  z-index: 10;        /* higher than any particle layer */
+  pointer-events: auto; /* normal interaction */
+}
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 250px; /* min width 250px, grow if space allows */
+  min-width: 200px; /* ensures it doesn’t shrink too small */
+}
+
+.footer-section-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #f0f0f0;
+  text-decoration: underline;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .footer-section {
+    width: 100%;
+    min-width: unset;
+    text-align: center;
+  }
+}

@@ -1,0 +1,242 @@
+/* Kapcsolat.css */
+
+/* Section background and padding */
+.contact-section {
+  padding: 2rem;
+  background-color: #f5f5f5;
+  min-height:600px;
+}
+
+/* Section heading */
+.contact-section h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #222222;
+}
+
+/* Container for info + form */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 2em;
+}
+
+/* Left side info */
+.contact-info {
+  flex: 1 1 350px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info h2 {
+  margin-bottom: 1rem;
+  color: #222222;
+}
+
+.contact-info p {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+/* Right side form */
+.contact-form {
+  flex: 2 1 500px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h2 {
+  margin-bottom: 1.5rem;
+  color: #222222;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333333;
+}
+
+input, textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #3b82f6;
+}
+
+/* Submit button */
+.submit-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #1d4ed8;
+}
+
+
+.pro-creation-info ul {
+  list-style: none; /* Eltünteti a hagyományos pontokat */
+  padding-left: 0;  /* Baloldali behúzás eltüntetése */
+}
+
+.pro-creation-info li {
+  display: flex;
+  align-items: flex-start; /* A pipát és a szöveget egy vonalba hozza */
+  margin-bottom: 10px;     /* Kicsi távolság a sorok között */
+}
+
+.check-icon {
+  color: #4CAF50; /* Zöld pipaszín, ahogy az Árazás oldalon */
+  margin-right: 10px; /* Kis tér a pipák és a szöveg között */
+  flex-shrink: 0;      /* Ne zsugorodjon a pipaszimbólum */
+}
+.website {
+    color:#1d4ed8;
+    text-decoration:underline;
+    text-underline-offset: 3px;  
+}
+
+
+
+
+
+
+
+.contact-container {
+  display: flex;
+  gap: 20px; 
+  flex-wrap: wrap;
+}
+
+.pro-creation-info,
+.contact-info {
+  background-color: #ffffff; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+  flex: 1; 
+  min-width: 280px; 
+  line-height: 2em;
+}
+
+.pro-creation-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pro-creation-info li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.check-icon {
+  color: #4CAF50;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.website {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+
+
+/*Form*/
+
+.contact-form-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+form {
+  margin-right: 20px;
+}
+
+.contact-form-box h2 {
+  margin-bottom: 15px;
+}
+
+.contact-form-box input,
+.contact-form-box textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.contact-form-box button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form-box button:hover {
+  background-color: #0056b3;
+}
+
+.form-message {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: green;
+}
+
+.send-form {
+  background: linear-gradient(90deg, #626ccc, darkcyan);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+}
