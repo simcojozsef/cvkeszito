@@ -98,7 +98,7 @@ export default function CreateCvPersonal() {
       });
 
       const response = await axios.post(
-        "http://localhost:8000/api/personal-data",
+        "https://cvkeszito.hu/api/personal-data",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

@@ -6,7 +6,7 @@ import Footer from "../Components/Footer";
 export default function Arazas() {
 
     const handleFirstBlockClick = () => {
-        window.location.href = "http://localhost:8000/createcv/personal-data";
+        window.location.href = "https://cvkeszito.hu/createcv/personal-data";
     };
     const handleSecondBlockClick = () => {
         window.location.href = "/kapcsolat"; // Itt adtuk meg a második blokk célját

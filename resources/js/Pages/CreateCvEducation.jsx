@@ -77,7 +77,7 @@ export default function CreateCvEducation() {
   try {
     // send each education to backend
     for (let edu of educations) {
-      await axios.post("http://localhost:8000/api/educations", {
+      await axios.post("https://cvkeszito.hu/api/educations", {
         ...edu,
         personal_data_id,
       });

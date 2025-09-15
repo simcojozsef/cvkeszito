@@ -78,7 +78,7 @@ export default function CreateCvExperience() {
   try {
     // send to backend
     for (let exp of experiences) {
-      await axios.post("http://localhost:8000/api/experiences", {
+      await axios.post("https://cvkeszito.hu/api/experiences", {
         ...exp,
         personal_data_id,
       });

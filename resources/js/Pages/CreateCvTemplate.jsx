@@ -264,7 +264,7 @@ const handleSendEmail = async (userId, templateId) => {
             className="create-cv-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center mb-8"
           >
             {row.map((tpl) => {
-              const pdfUrl = `http://localhost:8000/cv/pdf/${personalData.id}/${tpl.id}`;
+              const pdfUrl = `https://cvkeszito.hu/cv/pdf/${personalData.id}/${tpl.id}`;
               return (
                 <div
                   key={tpl.id}
