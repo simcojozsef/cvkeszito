@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "./TemplateBanner.css";
 
 const templates = [
-  "/images/cv-minta1.jpg",
-  "/images/cv-minta2.jpg",
-  "/images/cv-minta3.jpg",
-  "/images/cv-minta4.jpg",
-  "/images/cv-minta5.jpg",
-  "/images/cv-minta6.jpg",
+  "https://cvkeszito.hu/images/cv-minta1.jpg",
+  "https://cvkeszito.hu/images/cv-minta2.jpg",
+  "https://cvkeszito.hu/images/cv-minta3.jpg",
+  "https://cvkeszito.hu/images/cv-minta4.jpg",
+  "https://cvkeszito.hu/images/cv-minta5.jpg",
+  "https://cvkeszito.hu/images/cv-minta6.jpg",
 ];
 
 const labels = [
