@@ -96,11 +96,7 @@ body {
 
 /* --- Card Container --- */
 .card {
-    background: linear-gradient(
-        90deg,                     /* left to right */
-        rgba(98, 108, 204, 0.7),   /* brand purple, 70% opacity */
-        rgba(98, 108, 204, 0.1)    /* almost transparent */
-    );
+    background: linear-gradient(90deg, #626cccb3, #008b8b);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);

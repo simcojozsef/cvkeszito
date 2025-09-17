@@ -22,7 +22,7 @@
     
     <!-- Profile Picture -->
     <div data-layer="CONTACT_PROFILE" class="ContactProfile" style="width: 231px; height: 222px; left: 44px; top: 51px; position: absolute; background: #7A61B4; border-radius: 14px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-        @if($personalData->profile_picture)
+         @if(!empty($personalData->profile_picture) && file_exists(public_path('storage/' . $personalData->profile_picture)))
             @php
                 $imagePath = public_path('storage/' . $personalData->profile_picture);
                 $imageData = base64_encode(file_get_contents($imagePath));

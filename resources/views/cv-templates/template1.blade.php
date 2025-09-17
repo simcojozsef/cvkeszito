@@ -124,7 +124,7 @@
   <div data-layer="SVG_2" class="Svg2" style="width: 2px; height: 769px; left: 234px; top: 1099px; position: absolute; transform: rotate(180deg); transform-origin: top left; background: #E8E8E8"></div>
     <!-- Profile picture -->
     <div data-layer="PROFILE_PICTURE" class="ProfilePicture" style="width: 150px; height: 150px; left: 322px; top: 50px; position: absolute; border-radius: 9999px; overflow: hidden; background: #766951; display: flex; justify-content: center; align-items: center;">
-        @if($personalData->profile_picture)
+        @if(!empty($personalData->profile_picture) && file_exists(public_path('storage/' . $personalData->profile_picture)))
             @php
                 $imagePath = public_path('storage/' . $personalData->profile_picture);
                 $imageData = base64_encode(file_get_contents($imagePath));
