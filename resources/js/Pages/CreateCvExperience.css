@@ -120,6 +120,20 @@ hr {
     transition: background-color 0.3s;
     width: 50%;
 }
+.description-label {
+  padding-top:10px;
+}
+.end-date-label {
+  padding-top:10px;
+}
+.experience-form-card {
+  max-width:700px;
+}
+.experience-page-content {
+  padding-bottom:4rem;
+  padding-left: 2em;
+  padding-right:2em;
+}
 
 @media only screen and (max-width:768px) {
     .button-container {

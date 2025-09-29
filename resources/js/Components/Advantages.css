@@ -13,16 +13,18 @@
 }
 
 .card {
-    background-color: darkcyan;           /* white background */
-    border: 1px solid #626ccc;           /* purple border */
+    background-color: darkcyan;           
+    border: 1px solid #626ccc;           
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     flex: 1 1 300px;
     color: #111;                         /* dark text for readability */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0.9;
+    z-index:2;
+    min-height:200px;
 }
+
 
 .card:hover {
     transform: scale(1.05);              /* subtle grow on hover */
@@ -49,10 +51,10 @@
 
 .icon {
     font-size: 2rem;
-    color: #626ccc;
-    background: white;
+    color: white;
+    background: linear-gradient(135deg, #7b1fa2, #e91e63);
     padding: 0.5em;
-    border: 2px solid #626ccc;
+    border: 2px solid linear-gradient(135deg, #7b1fa2, #e91e63);
     border-radius: 50px;
     height: 30px;
     width: 30px;

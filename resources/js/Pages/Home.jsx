@@ -38,16 +38,19 @@ export default function Home() {
                     }}
                 >
                     <h1 className="title">
-                        Készítsd el profi önéletrajzodat percek alatt!
+                        Készítse el professzionális önéletrajzát percek alatt – technikai tudás nélkül!
                     </h1>
+                    <h2 className="sub-title">
+                        Modern sablonok, egyszerű használat, azonnali PDF letöltés.
+                    </h2>
                     <p className="paragraph">
-                        Nincs szükség technikai tudásra – egyszerűen add meg az adataidat, és mi automatikusan PDF formátumban generáljuk az önéletrajzodat.
+                        Az adatok felvétele után automatikusan elkészítjük önéletrajzát, melyet Ön letölthet.
                     </p>
                     <Link
                         to="/createcv/personal-data"
                         className="create-cv-button"
                     >
-                        Önéletrajz elkészítése!
+                        Kezdje el most!
                     </Link>
                 </div>
             </main>

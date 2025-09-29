@@ -52,7 +52,7 @@ const UserReviews = () => {
       <div className="max-w-5xl mx-auto px-4">
         <h2>Mit mondanak felhasználóink a CV Készítőről?</h2>
         <p className="subtitle">
-          A CV Készítőnek köszönhetően mindannyian megtalálták álommunkájukat:
+          Találja meg Ön is álommunkáját. Mi csak elősegítjük a folyamatot egy professzionális önéletrajzzal.
         </p>
 
         <div className="user-reviews-container">
@@ -75,7 +75,7 @@ const UserReviews = () => {
 
         <div className="companies-section text-center mt-12">
           <p className="companies mb-4">
-            A CV Készítő felhasználóit olyan top vállalatoknál is alkalmazhatják, mint pl:
+            Top vállalatok is alkalmazzák felhasználóinkat!
           </p>
           <div className="company-logos">
             <img src="/images/apple-logo%201.svg" alt="Apple" className="company-logo apple-logo" />

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './CreateCvExperience.css';
+import Footer from "../Components/Footer";
 
 const steps = [
   { label: "Adatok", path: "/createcv/personal-data" },
@@ -100,15 +101,17 @@ export default function CreateCvExperience() {
 
 
   return (
-    <div className="page-content">
+    <>
+    <div className="page-content experience-page-content">
       <StepProgress />
 
-      <div className="createcv-form-card">
+      <div className="createcv-form-card experience-form-card">
         <h1>Tapasztalatok</h1>
         <p className="create-cv-description">Kérjük, az alábbi mezőkben adja meg korábbi munkatapasztalatait.</p>
         <form onSubmit={handleSubmit}>
           {experiences.map((exp, index) => (
             <div key={index} className="experience-item">
+              <label htmlFor={`company_${index}`}>Hol dolgozott?:</label>
               <input
                 type="text"
                 name="company"
@@ -121,6 +124,7 @@ export default function CreateCvExperience() {
               <small>
                 {exp.company.length} / 40 karakter
               </small>
+              <label htmlFor={`position_${index}`}>Milyen pozíciót töltött be?: </label>
               <input
                 type="text"
                 name="position"
@@ -133,6 +137,7 @@ export default function CreateCvExperience() {
               <small>
                 {exp.position.length} / 40 karakter
               </small>
+              <label htmlFor={`start_date_${index}`}>Kezdés dátuma:</label>
               <input
                 type="date"
                 name="start_date"
@@ -141,6 +146,7 @@ export default function CreateCvExperience() {
                 onChange={(e) => handleChange(index, e)}
                 required
               />
+              <label className="end-date-label" htmlFor={`end_date_${index}`}>Befejezés dátuma:</label>
               <input
                 type="date"
                 name="end_date"
@@ -148,6 +154,7 @@ export default function CreateCvExperience() {
                 value={exp.end_date}
                 onChange={(e) => handleChange(index, e)}
               />
+              <label className="description-label" htmlFor={`description_${index}`}>Milyen feladatokat látott el?: </label>
               <textarea
                 name="description"
                 placeholder="Leírás"
@@ -176,5 +183,7 @@ export default function CreateCvExperience() {
         {message && <p>{message}</p>}
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

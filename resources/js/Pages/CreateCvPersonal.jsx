@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './CreateCvPersonal.css';
+import Footer from "../Components/Footer";
+import placeholder from '../../images/profile_placeholder.png';
 
 // Stepper component
 const steps = [
@@ -52,7 +54,7 @@ export default function CreateCvPersonal() {
     address: "",
     introduction: "",
   });
-  const [preview, setPreview] = useState(null); // 👈 new
+  const [preview, setPreview] = useState(placeholder);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
   // Checkbox
@@ -76,9 +78,12 @@ export default function CreateCvPersonal() {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setForm({ ...form, profile_picture: file });
+    setForm({ ...form, profile_picture: file || null });
+
     if (file) {
-      setPreview(URL.createObjectURL(file)); 
+      setPreview(URL.createObjectURL(file)); // show selected file
+    } else {
+      setPreview("/images/profile_placeholder.png"); // fallback to placeholder
     }
   };
 
@@ -92,62 +97,84 @@ export default function CreateCvPersonal() {
     }
 
     try {
-      const formData = new FormData();
-      Object.entries(form).forEach(([key, value]) => {
-        if (value) formData.append(key, value);
-      });
+    const formData = new FormData();
 
-      const response = await axios.post(
-        "https://cvkeszito.hu/api/personal-data",
-        formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      );
-
-      // Save to sessionStorage
-      sessionStorage.setItem("personalData", JSON.stringify(response.data.data));
-
-      // Update preview with server URL (instead of blob:)
-      if (response.data.data.profile_picture) {
-        setPreview(response.data.data.profile_picture);
+    Object.entries(form).forEach(([key, value]) => {
+      // Only append if the value exists
+      if (value) {
+        // For profile_picture, only append if it's a real File object
+        if (key === "profile_picture") {
+          if (value instanceof File) {
+            formData.append(key, value);
+          }
+        } else {
+          formData.append(key, value);
+        }
       }
+    });
 
-      setMessage(response.data.message);
-      navigate("/createcv/experience");
+    const response = await axios.post(
+      "https://cvkeszito.hu/api/personal-data",
+      formData,
+      { headers: { "Content-Type": "multipart/form-data" } }
+    );
 
-    } catch (error) {
-      if (error.response?.data?.errors) {
-        setMessage(Object.values(error.response.data.errors).join(" "));
-      } else {
-        setMessage(error.response?.data?.message || "Hiba történt!");
-      }
+    // Save to sessionStorage
+    sessionStorage.setItem("personalData", JSON.stringify(response.data.data));
+
+    // Update preview with server URL (instead of blob:)
+    if (response.data.data.profile_picture) {
+      setPreview(response.data.data.profile_picture);
     }
-  };
+
+    setMessage(response.data.message);
+    navigate("/createcv/experience");
+
+  } catch (error) {
+    if (error.response?.data?.errors) {
+      setMessage(Object.values(error.response.data.errors).join(" "));
+    } else {
+      setMessage(error.response?.data?.message || "Hiba történt!");
+    }
+  }
+};
 
   return (
-    <div className="page-content">
+    <>
+    <div className="page-content personal-page-content">
       <StepProgress />
 
-      <div className="createcv-form-card">
+      <div className="createcv-form-card personal-form-card">
         <h1 className="create-cv-title">Adatok</h1>
         <p className="create-cv-description">Az alábbi mezőkben megadott adatok az Ön önéletrajzában fognak megjelenni. Kérjük, adja meg őket figyelmesen és helyesen.</p>
         <form onSubmit={handleSubmit} className="personal-form">
-          <p className="profile-picture-label">Profilkép</p>
-          <span className="profile-picture-markup">Az ideális megjelenítéshez kérjük, válasszon egy 500 × 500 px méretű, .jpeg vagy .png formátumú képet.</span>
-          <input
-            type="file"
-            name="profile_picture"
-            accept="image/*"
-            onChange={handleFileChange}
-          />
-          {preview && (
-            <div className="image-preview">
-              <img
-                src={preview}
-                alt="Preview"
-                style={{ width: "120px", height: "120px", borderRadius: "50%" }}
+          <div className="profile-picture-container-outer">
+            <p className="profile-picture-label">Profilkép</p>
+            <span className="profile-picture-markup">
+              Az ideális megjelenítéshez kérjük, válasszon egy <strong>500 × 500 px méretű, négyzet alakú</strong> .jpeg vagy .png formátumú képet.
+            </span>
+            <div className="profile-picture-container-inner">
+              <input
+                id="profilePictureInput"
+                type="file"
+                name="profile_picture"
+                accept="image/*"
+                onChange={handleFileChange}
+                className="file-input"
               />
+              <label htmlFor="profilePictureInput" className="file-input-label">
+                Profilkép kiválasztása
+              </label>
+
+              <div className="image-preview">
+                <img
+                  src={preview}
+                  alt="Preview"
+                  style={{ width: "120px", height: "120px", borderRadius: "50%" }}
+                />
+              </div>
             </div>
-          )}
+          </div>
 
           <p className="personal-data-label">Adatok</p>
           <input
@@ -191,7 +218,7 @@ export default function CreateCvPersonal() {
           <p className="personal-data-label">Bemutatkozás</p>
           <textarea
             name="introduction"
-            class="introduction"
+            className="introduction"
             placeholder="Bemutatkozó"
             value={form.introduction}
             onChange={handleChange}
@@ -205,7 +232,7 @@ export default function CreateCvPersonal() {
               onChange={(e) => setAcceptedTerms(e.target.checked)}
               required
             />
-            <label htmlFor="acceptedTerms">
+            <label className="checkbox-content" htmlFor="acceptedTerms">
               <span>Elfogadom az&nbsp;</span>
               <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">adatvédelmi irányelveket</a>
               <span>,&nbsp;</span>
@@ -220,5 +247,7 @@ export default function CreateCvPersonal() {
         {message && <p>{message}</p>}
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
