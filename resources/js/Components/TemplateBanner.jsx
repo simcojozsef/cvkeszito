@@ -49,9 +49,9 @@ const TemplateBanner = () => {
   return (
     <section className="template-banner-section">
       <div className="template-banner-container">
-        <h2 className="template-title">Tűnj ki az önéletrajzoddal!</h2>
+        <h2 className="template-title">Tűnjön ki az önéletrajzával!</h2>
         <p className="template-subtitle">
-          Növeld esélyeid az állásszerzésre azzal, hogy professzionálisan megtervezett önéletrajz-sablonjainkkal és kiegészítő színvilágunkkal készíted el önéletrajzod.
+          Növelje esélyeit az állásszerzésre azzal, hogy professzionálisan megtervezett önéletrajz-sablonjainkkal és kiegészítő színvilágunkkal készíti el önéletrajzát.
         </p>
 
         <div className="template-images">
@@ -68,7 +68,7 @@ const TemplateBanner = () => {
         </div>
 
         <p className="template-note">
-          Tekintsd meg az összes elérhető professzionális önéletrajz sablont.
+          Tekintse meg az összes elérhető professzionális önéletrajz sablont.
         </p>
       </div>
 

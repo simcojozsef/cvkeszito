@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './CreateCvEducation.css';
+import Footer from "../Components/Footer";
 
 const steps = [
   { label: "Adatok", path: "/createcv/personal-data" },
@@ -98,15 +99,17 @@ export default function CreateCvEducation() {
 };
 
   return (
-    <div className="page-content">
+    <>
+    <div className="page-content education-page-content">
       <StepProgress />
 
-      <div className="createcv-form-card">
+      <div className="createcv-form-card education-form-card">
         <h1>Tanulmányok</h1>
         <p className="create-cv-description">Kérjük, az alábbi mezőkben adja meg korábbi tanulmányait.</p>
         <form onSubmit={handleSubmit}>
           {educations.map((edu, index) => (
             <div key={index} className="education-item">
+              <label htmlFor={`school_${index}`}>Hol tanult?</label>
               <input
                 type="text"
                 name="school"
@@ -117,15 +120,17 @@ export default function CreateCvEducation() {
                 maxLength={40}
               />
               <small>{edu.school.length} / 40 karakter</small>
+              <label htmlFor={`degree_${index}`}>Milyen érettségit vagy diplomát szerzett?</label>
               <input
                 type="text"
                 name="degree"
-                placeholder="Fokozat / Diploma"
+                placeholder="Érettségi / Diploma"
                 value={edu.degree}
                 onChange={(e) => handleChange(index, e)}
                 maxLength={40}
               />
               <small>{edu.degree.length} / 40 karakter</small>
+              <label htmlFor={`field_of_study_${index}`}>Milyen szakon vagy tanulmányi területen tanult?</label>
               <input
                 type="text"
                 name="field_of_study"
@@ -135,6 +140,7 @@ export default function CreateCvEducation() {
                 maxLength={40}
               />
               <small>{edu.field_of_study.length} / 40 karakter</small>
+              <label htmlFor={`start_date_${index}`}>Kezdés ideje: </label>
               <input
                 type="date"
                 name="start_date"
@@ -143,6 +149,7 @@ export default function CreateCvEducation() {
                 onChange={(e) => handleChange(index, e)}
                 required
               />
+              <label className="education-end-date-label" htmlFor={`end_date_${index}`}>Végzés ideje: </label>
               <input
                 type="date"
                 name="end_date"
@@ -150,6 +157,7 @@ export default function CreateCvEducation() {
                 value={edu.end_date}
                 onChange={(e) => handleChange(index, e)}
               />
+              <label className="education-description-label" htmlFor={`description_${index}`}>Milyen tanulmányt folytatott?</label>
               <textarea
                 name="description"
                 placeholder="Leírás"
@@ -175,5 +183,7 @@ export default function CreateCvEducation() {
         {message && <p>{message}</p>}
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

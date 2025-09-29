@@ -4,52 +4,79 @@ import "./Information.css";
 const sections = [
   {
     title: "Önéletrajz",
-    content: "Információk, gyakran ismételt kérdések és tippek az önéletrajzodhoz."
+    content: "Információk, gyakran ismételt kérdések és tippek egy jó önéletrajz elkészítéséhez."
   },
   {
-    title: "Mi az önéletrajz?",
-    content: `A CV vagy önéletrajz a latin 'curriculum vitae' kifejezés rövidítése, ami 'életutat' jelent. Egy profi önéletrajz összefoglalja az ember életét, és áttekintést nyújt róla.
-
-Önéletrajzában szerepelnie kell a végzettségének és képesítéseinek, munkatapasztalatának, készségeinek és fontos tulajdonságainak. Önéletrajzának segítségével a potenciális munkáltató gyorsan át tudja látni a készségeit, munkatapasztalatát és tudását, hogy felmérhesse, megfelel-e az adott munkára, és behívja-e Önt egy állásinterjúra.`
+    title: "Hogyan működik az önéletrajz-készítő?",
+    content: `Ön megadja az alapadatokat, kiválasztja a sablont, és rendszerünk automatikusan elkészíti az önéletrajzát PDF formátumban.`
   },
   {
-    title: "Mit tartalmazzon az önéletrajzom?",
-    content: `Önéletrajza csak a potenciális munkáltató szempontjából releváns információt kell, hogy tartalmazza. Tehát ez azt jelenti, hogy jelentkezésenként eltérhet a CV tartalma. Önéletrajzának azonban minden esetben tartalmaznia kell a következőket:
-
-- Adatok
-- Munkatapasztalat
-- Végzettség
-
-A fent említett elemeket minden önéletrajznak tartalmaznia kell, minden jelentkezésnél. Ha azonban valóban ki akar tűnni a többi pályázó közül, akkor erősen ajánlott egy kicsit több erőfeszítést tenni.`
+    title: "Mennyibe kerül a szolgáltatás?",
+    content: `A szolgáltatás díjköteles. A pontos árakról és csomagokról a „Árazás” menüpontban talál részletesebb információt.`
   },
   {
-    title: "Személyes nyilatkozat vagy önéletrajz-profil",
-    content: `A legtöbb modern önéletrajz tartalmaz egy rövid bevezető bekezdést, amelyet személyes nyilatkozatnak vagy profilnak hívnak. Ebben a bekezdésben, amelyet a legtöbb munkaerő-szervező elolvas, lehetősége nyílik arra, hogy néhány mondatban eladja magát. Leírhatja milyan munkát keres, melyek a saját jellemvonásai és ambíciói. További segítségért tekintse meg a blogbejegyzést is a személyes profil megírásáról.`
+    title: "Szükséges technikai tudás az önéletrajz elkészítéséhez?",
+    content: `Nem. A felületet úgy alakítottuk ki, hogy bárki könnyedén használhassa – nincs szükség előképzettségre vagy programismeretre.`
   },
   {
-    title: "Kompetenciák és készségek",
-    content: `Természetesen minden munka más. Pályafutása során azonban az ember megszerez bizonyos átadható kompetenciákat és készségeket is. Ezek az erős személyes vonások tapasztalat révén szerezhetőek be, és hozzájárulnak minden további munka hatékonyabb elvégzéséhez. További információ a készségek felsorolásáról az önéletrajzban itt található.`
+    title: "Milyen formátumban kapom meg az önéletrajzot?",
+    content: `Az elkészült dokumentumot PDF formátumban töltheti le, amely letöltést követően azonnal küldhető e-mailben vagy feltölthető állásportálokra.`
   },
   {
-    title: "Tanfolyamok és munkával kapcsolatos képzések",
-    content: `Egyes munkáltatók tanfolyamokat vagy képzéseket kínálnak alkalmazottaik bizonyos készségeinek fejlesztésére. Ha részt vett ilyen képzésen, és fejlesztett olyan készségeket vagy kompetenciákat, amelyek relevánsak az új munkája szempontjából, akkor ezeket feltétlenül adja meg. Ne felejtse el megemlíteni, hogy oklevelet vagy bizonyítványt szerzett-e!`
+    title: "Módosíthatom később az önéletrajzomat?",
+    content: `Az adatok tárolásra kerülnek, későbbi módosításra csak egyedi ajánlat keretein belül van lehetőség. Egyedi önéletrajz igénylése esetén azonban három alkalommal biztosítunk díjmentes módosítást – ennek részleteit az Árazás menüpontban találja.`
   },
   {
-    title: "Tevékenységek",
-    content: `Bizonyos készségeket és kompetenciákat szakmai környezet kívül is elsajátíthat, például ha önkéntes munkát végez edzőként, oktatóként vagy könyvelőként egy klubnál vagy szervezetnél. Ha tanulmányai során végzett ilyen tevékenységeket, mindenképpen sorolja fel azokat.`
+    title: "Használhatom mobilról vagy tabletről?",
+    content: `Természetesen. A platform teljes mértékben mobilbarát, így akár útközben is elkészítheti önéletrajzát.`
   },
   {
-    title: "Mi az időrendi önéletrajz?",
-    content: `A legelterjedtebb önéletrajz kronológiai önéletrajz néven ismert. Ez azt jelenti, hogy az időtől függő elemek, mint például az oktatás és a munkatapasztalat, fordított időrendi sorrendben vannak feltüntetve. Az legutóbbi (legfrissebb) munkája kerüljön az első helyre, és az elsőként megszerzett képesítés az utolsó helyre.`
+    title: "Milyen sablonok közül választhatok?",
+    content: `Többféle stílusban kínálunk sablonokat – letisztult, modern, kreatív és klasszikus megjelenésűeket is, hogy mindenki megtalálja a hozzá illőt.`
   },
   {
-    title: "Tippek a tökéletes önéletrajz elkészítéséhez",
-    content: `- Csak azokat a releváns információkat említse meg, amelyek hozzáadott értéket képviselnek a megpályázott állás szempontjából.
-- Ne említsen olyan hobbikat vagy érdeklődési köröket, amelyek kínos kérdéseket vetnek fel.
-- Az első oldalon adja meg a legfontosabb információkat.
-- Használjon pontokba szedett felsorolásokat és számozott listákat.
-- Mindig válassza a kronológiai önéletrajzot, hacsak nem kérik másként az adott jelentkezésnél.
-- Önéletrajza legyen rövid és velős.`
+    title: "Biztonságban vannak az adataim?",
+    content: `Igen. Az adatkezelés megfelel a GDPR előírásainak, és kizárólag az önéletrajz generálásához használjuk fel az adatokat.`
+  },
+  {
+    title: "Mennyi idő alatt készül el az önéletrajzom?",
+    content: `Átlagosan 5–10 perc alatt elkészíthető, attól függően, milyen részletes adatokat ad meg.`
+  },
+  {
+    title: "Kapok előnézetet az önéletrajzról, mielőtt megvenném?",
+    content: `Igen, a generálás előtt megtekintheti az önéletrajz előnézetét, így még időben módosíthatja a tartalmat.`
+  },
+  {
+    title: "Van lehetőség fényképet elhelyezni az önéletrajzban?",
+    content: `Igen, az összes sablon támogatja a profilkép beillesztését.`
+  },
+  {
+    title: "Mentés nélkül is kipróbálhatom a szerkesztőt?",
+    content: `Igen, a szerkesztő kipróbálható, a PDF-ek az Ön adataival beillesztve fizetés előtt megtekinthetőek, de a PDF letöltése fizetéshez kötött.`
+  },
+  {
+    title: "Milyen típusú pozíciókhoz ajánlottak a sablonok?",
+    content: `Sablonjaink pályakezdőknek, tapasztalt szakembereknek és vezetői pozíciókhoz is alkalmasak – a stílus szabadon választható.`
+  },
+  {
+    title: "Van lehetőség motivációs levél készítésére is?",
+    content: `Jelenleg az önéletrajzra fókuszálunk, de motivációs levél szolgáltatásunk hamarosan elérhető lesz.`
+  },
+  {
+    title: "Mi történik, ha technikai problémám adódik?",
+    content: `Ügyfélszolgálatunk készséggel segít – a Kapcsolat menüpontban talál elérhetőséget és üzenetküldési lehetőséget.`
+  },
+  {
+    title: "Milyen nyelveken érhető el a szolgáltatás?",
+    content: `Jelenleg magyar nyelven érhető el, további nyelvek bevezetése folyamatban van.`
+  },
+  {
+    title: "Hogyan tudok számlát igényelni?",
+    content: `A vásárlás után automatikusan kiállítjuk a számlát, amelyet e-mailben küldünk el Önnek.`
+  },
+  {
+    title: "Hogyan léphetek kapcsolatba, ha nem találtam választ a kérdésemre?",
+    content: `Ha nem találja a választ kérdésére, forduljon hozzánk bizalommal a Kapcsolat menüpontban!`
   }
 ];
 

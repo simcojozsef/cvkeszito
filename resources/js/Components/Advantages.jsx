@@ -16,22 +16,23 @@ const advantagesData = [
   },
   {
     title: "Választható stílusok",
-    text: `Több sablon közül választhatsz, így a dokumentumod egyedi lesz.`,
+    text: `Több sablon közül választhat, így a dokumentuma egyedi lesz, stílusában is kiemelkedik.
+    `,
     icon: <FiFolder />,
   },
   {
     title: "Közvetlen PDF",
-    text: `10 percen belül elkészül az önéletrajzod PDF formátumban, készen arra, hogy elküldhesd a munkáltatóknak.`,
+    text: `Mindössze 10 percet vesz igénybe az űrlap kitöltése, melyet követően letöltheti önéletrajzát és elküldheti a munkáltatóknak.`,
     icon: <FiDownload />,
   },
   {
     title: "Megkönnyítjük a jelentkezést",
-    text: `Egyszerűen letöltheted és elküldheted az önéletrajzodat a munkaadóknak, gyorsítva a jelentkezési folyamatot.`,
+    text: `Egyszerűen letöltheti és elküldheti az önéletrajzát a munkaadóknak, gyorsítva a jelentkezési folyamatot.`,
     icon: <FiSend />,
   },
   {
     title: "Professzionális megjelenés",
-    text: `Az önéletrajzod letisztult, átlátható és esztétikus, ami jó benyomást kelt a munkaadóknál.`,
+    text: `Az önéletrajza letisztult, átlátható és esztétikus, ami jó benyomást kelt a munkaadóknál.`,
     icon: <FiAward />,
   },
 ];

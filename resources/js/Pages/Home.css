@@ -43,30 +43,30 @@
 .create-cv-button {
     display: inline-block;
     padding: 16px 48px;
-    margin-top: 20px;
-    background: white;
-    color: #4e57b6;
+    margin-top: 2em;
+    background: linear-gradient(135deg, #7b1fa2, #e91e63);
+    color: white;
     border: none;
     cursor: pointer;
-    border-radius: 8px 8px 8px 8px;
+    border-radius: 8px;
     font-size: 1.6em;
     font-weight: 400;
     letter-spacing: 0.5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: auto;
-    margin-top: 2em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     text-decoration: none;
 }
 
+
 .create-cv-button:hover {
-    background: linear-gradient(135deg, #FFFFFF, #F5F5F5);
+    background: linear-gradient(135deg, #9c27b0, #ec407a); /* lighter purple → pink */
     transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(98, 108, 204, 0.35);
+    box-shadow: 0 12px 25px rgba(123, 31, 162, 0.35);
 }
 
 .create-cv-button:active {
+    background: linear-gradient(135deg, #6a0e8a, #d81b60); /* darker purple → magenta */
     transform: translateY(-1px) scale(0.98);
-    box-shadow: 0 6px 15px rgba(98, 108, 204, 0.25);
+    box-shadow: 0 6px 15px rgba(123, 31, 162, 0.25);
 }
 
 .title {

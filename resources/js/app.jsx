@@ -52,9 +52,9 @@ function App() {
                         aria-label="Toggle menu"
                     >
                         {isOpen ? (
-                            <span style={{ color: "white", fontSize: "24px" }}>✕</span>
+                            <span style={{ color: "white", fontSize: "24px", fontSize: "32px" }}>✕</span>
                         ) : (
-                            <span style={{ fontSize: "24px" }}>☰</span>
+                            <span style={{ fontSize: "32px" }}>☰</span>
                         )}
                     </button>
 

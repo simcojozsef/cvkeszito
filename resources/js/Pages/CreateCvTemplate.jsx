@@ -232,7 +232,7 @@ const handleSendEmail = async (userId, templateId) => {
 
   return (
     <>
-    <div className="page-content">
+    <div className="page-content template-page-content">
       <StepProgress />
 
       <div className="createcv-form-card text-center">

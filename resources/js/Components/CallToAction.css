@@ -24,19 +24,31 @@
 }
 
 .cta-button {
-  display: inline-block;
-  background-color: #000; 
-  z-index:98;
-  color: #fff;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #7b1fa2, #e91e63); /* purple → magenta */
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    z-index: 98;
 }
 
+/* Hover: lighter gradient, lifted */
 .cta-button:hover {
-  transform: scale(1.05);
+    background: linear-gradient(135deg, #9c27b0, #ec407a); /* lighter purple → pink */
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(123, 31, 162, 0.35);
+}
+
+/* Active: darker gradient, pressed */
+.cta-button:active {
+    background: linear-gradient(135deg, #6a0e8a, #d81b60); /* darker purple → magenta */
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 6px 15px rgba(123, 31, 162, 0.25);
 }
 
 .cta-note {
