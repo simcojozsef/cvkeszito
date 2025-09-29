@@ -120,7 +120,7 @@ hr {
 }
 
 .education-form-card {
-  max-width:700px;
+  max-width:700px!important;
 }
 
 .education-page-content {

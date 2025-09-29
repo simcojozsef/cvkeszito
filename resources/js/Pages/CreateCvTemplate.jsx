@@ -128,7 +128,7 @@ if (!personalData) {
     <>
       <div className="page-content" style={{ marginBottom: "10rem" }}>
         <StepProgress />
-        <div className="createcv-form-card">
+        <div className="createcv-form-card template-form-card-unfilled">
           <h1>Hiányzó adatok</h1>
           <p>Kérlek töltsd ki a személyes adatokat először.</p>
         </div>
@@ -235,7 +235,7 @@ const handleSendEmail = async (userId, templateId) => {
     <div className="page-content template-page-content">
       <StepProgress />
 
-      <div className="createcv-form-card text-center">
+      <div className="createcv-form-card template-form-card-filled text-center">
         <h1 className="mb-6">Választható sablonok</h1>
         <div className="info-box">
           <div className="info-header">

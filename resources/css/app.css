@@ -254,7 +254,6 @@ body {
 /* --- CreateCV Form Card --- */
 .createcv-form-card {
   width: -webkit-fill-available !important;
-  max-width: 1200px;
   background: white;
   padding: 2rem;
   border-radius: 12px;
