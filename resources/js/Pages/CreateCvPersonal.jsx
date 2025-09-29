@@ -113,6 +113,7 @@ export default function CreateCvPersonal() {
 
       setMessage(response.data.message);
       navigate("/createcv/experience");
+
     } catch (error) {
       if (error.response?.data?.errors) {
         setMessage(Object.values(error.response.data.errors).join(" "));

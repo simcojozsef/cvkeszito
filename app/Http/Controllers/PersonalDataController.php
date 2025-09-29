@@ -12,7 +12,7 @@ class PersonalDataController extends Controller
         $validated = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:personal_data,email',
+            'email' => 'required|email',
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string|max:255',
             'profile_picture' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
