@@ -127,7 +127,7 @@ hr {
   padding-top:10px;
 }
 .experience-form-card {
-  max-width:700px;
+  max-width:700px!important;
 }
 .experience-page-content {
   padding-bottom:4rem;
