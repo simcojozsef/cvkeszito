@@ -187,17 +187,20 @@ const handleDownloadClick = async (pdfUrl) => {
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
       if (isIOS) {
-        // iOS: fetch PDF as blob and open in new tab
+        // iOS: fetch PDF as blob and use FileReader to trigger download/preview
         const response = await fetch(pdfUrl, { mode: "cors" });
         const blob = await response.blob();
-        const blobUrl = window.URL.createObjectURL(blob);
 
-        // Open in new tab so user can "Share → Save to Files"
-        window.open(blobUrl, "_blank");
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          // Use data URL to open PDF in Safari
+          window.location.href = reader.result;
 
-        toast.info(
-          "A fájl megnyílt — koppints a megosztás ikonra, majd válaszd a 'Mentés a Fájlokba' opciót."
-        );
+          toast.info(
+            "A fájl megnyílt — koppints a megosztás ikonra, majd válaszd a 'Mentés a Fájlokba' opciót."
+          );
+        };
+        reader.readAsDataURL(blob);
       } else {
         // Desktop and Android → direct download
         const link = document.createElement("a");
