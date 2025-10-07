@@ -187,21 +187,19 @@ const handleDownloadClick = async (pdfUrl) => {
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
       if (isIOS) {
-        // ✅ Safari/iPhone/iPad: fetch blob and force save to Files → Downloads
+        // iOS: fetch PDF as blob and open in new tab
         const response = await fetch(pdfUrl, { mode: "cors" });
         const blob = await response.blob();
         const blobUrl = window.URL.createObjectURL(blob);
 
-        const link = document.createElement("a");
-        link.href = blobUrl;
-        link.download = `CV_${personalData.first_name}_${personalData.last_name}.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        // Open in new tab so user can "Share → Save to Files"
+        window.open(blobUrl, "_blank");
 
-        window.URL.revokeObjectURL(blobUrl);
+        toast.info(
+          "A fájl megnyílt — koppints a megosztás ikonra, majd válaszd a 'Mentés a Fájlokba' opciót."
+        );
       } else {
-        // ✅ Desktop and Android can handle direct download
+        // Desktop and Android → direct download
         const link = document.createElement("a");
         link.href = pdfUrl;
         link.download = `CV_${personalData.first_name}_${personalData.last_name}.pdf`;
@@ -215,6 +213,7 @@ const handleDownloadClick = async (pdfUrl) => {
     }
   }
 };
+
 
 
 
