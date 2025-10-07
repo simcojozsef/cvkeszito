@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('cv_purchases', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('personal_data_id')->constrained()->onDelete('cascade');
+            $table->foreignId('personal_data_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('pdf_url');
             $table->string('stripe_session_id')->unique();
             $table->string('invoice_number')->nullable();

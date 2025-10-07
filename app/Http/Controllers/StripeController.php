@@ -80,15 +80,29 @@ public function handleSuccess(Request $request)
                 }
             }
 
-            // Store the purchase in CvPurchase
+            $personalDataId = $user->personalData->id ?? PersonalData::create([
+                'user_id' => $user->id,
+                'first_name' => $user->name,
+                'last_name' => '',
+                // fill in other required fields or use defaults
+            ])->id;
+
             $purchase = CvPurchase::updateOrCreate(
                 ['stripe_session_id' => $stripeSessionId],
                 [
-                    'personal_data_id' => $user->personalData->id ?? null, // link to PersonalData
+                    'personal_data_id' => $personalDataId,
                     'pdf_url' => $pdfUrl,
                     'template' => $request->query('template') ?? null,
                 ]
             );
+
+            // Log purchase event
+            \Log::info('Creating CV purchase', [
+                'user_id' => $user->id,
+                'personal_data_id' => $personalDataId,
+                'pdfUrl' => $pdfUrl,
+                'stripe_session_id' => $stripeSessionId,
+            ]);
 
             // Generate invoice via SzamlazzHuController
             $szamlazzController = new \App\Http\Controllers\SzamlazzHuController();
