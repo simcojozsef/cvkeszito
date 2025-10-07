@@ -80,12 +80,33 @@ public function handleSuccess(Request $request)
                 }
             }
 
-            $personalDataId = $user->personalData->id ?? PersonalData::create([
-                'user_id' => $user->id,
-                'first_name' => $user->name,
-                'last_name' => '',
-                // fill in other required fields or use defaults
-            ])->id;
+            $personalData = $user->personalData;
+
+            if (!$personalData) {
+                // Provide defaults to satisfy required fields
+                $personalData = PersonalData::create([
+                    'user_id' => $user->id,
+                    'first_name' => $user->name ?? 'Unknown',
+                    'last_name' => 'N/A',
+                    'email' => $user->email ?? 'noemail@example.com',
+                    'phone' => '',
+                    'address' => '',
+                    'introduction' => '',
+                ]);
+
+                \Log::info('Created new PersonalData for Stripe user', [
+                    'user_id' => $user->id,
+                    'personal_data_id' => $personalData->id,
+                ]);
+            }
+
+            $personalDataId = $personalData->id;
+
+            \Log::info('Attempting CvPurchase creation', [
+                'personal_data_id' => $personalDataId,
+                'pdf_url' => $pdfUrl,
+                'stripe_session_id' => $stripeSessionId,
+            ]);
 
             $purchase = CvPurchase::updateOrCreate(
                 ['stripe_session_id' => $stripeSessionId],
@@ -95,6 +116,12 @@ public function handleSuccess(Request $request)
                     'template' => $request->query('template') ?? null,
                 ]
             );
+
+            \Log::info('CvPurchase created', [
+                'id' => $purchase->id,
+                'personal_data_id' => $personalDataId,
+                'stripe_session_id' => $stripeSessionId,
+            ]);
 
             // Generate invoice via SzamlazzHuController
             $szamlazzController = new \App\Http\Controllers\SzamlazzHuController();
