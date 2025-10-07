@@ -96,14 +96,6 @@ public function handleSuccess(Request $request)
                 ]
             );
 
-            // Log purchase event
-            \Log::info('Creating CV purchase', [
-                'user_id' => $user->id,
-                'personal_data_id' => $personalDataId,
-                'pdfUrl' => $pdfUrl,
-                'stripe_session_id' => $stripeSessionId,
-            ]);
-
             // Generate invoice via SzamlazzHuController
             $szamlazzController = new \App\Http\Controllers\SzamlazzHuController();
             $invoiceResponse = $szamlazzController->createInvoice(new \Illuminate\Http\Request([
