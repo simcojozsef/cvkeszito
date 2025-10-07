@@ -163,10 +163,9 @@ if (!personalData) {
   };
 
 
-  const handleDownloadClick = async (pdfUrl) => {
+const handleDownloadClick = async (pdfUrl) => {
   if (!hasPaid) {
     try {
-      // Call Laravel backend to create a Stripe session
       const res = await fetch("/api/create-stripe-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -183,12 +182,37 @@ if (!personalData) {
     }
   } else {
     // Already paid → allow download
-    const link = document.createElement("a");
-    link.href = pdfUrl;
-    link.download = `CV_${personalData.first_name}_${personalData.last_name}.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      // Detect iPhone/iPad
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+      if (isIOS) {
+        // ✅ Safari/iPhone/iPad: fetch blob and force save to Files → Downloads
+        const response = await fetch(pdfUrl, { mode: "cors" });
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = blobUrl;
+        link.download = `CV_${personalData.first_name}_${personalData.last_name}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        window.URL.revokeObjectURL(blobUrl);
+      } else {
+        // ✅ Desktop and Android can handle direct download
+        const link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = `CV_${personalData.first_name}_${personalData.last_name}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    } catch (err) {
+      console.error("Letöltés hiba:", err);
+      toast.error("Letöltés sikertelen!");
+    }
   }
 };
 
