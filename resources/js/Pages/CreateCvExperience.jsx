@@ -177,7 +177,7 @@ export default function CreateCvExperience() {
                 Új tapasztalat hozzáadása
             </button>
             <br />
-            <button className="button button-submit" type="submit">Mentés és továbblépés</button>
+            <button className="button button-submit continue-button" type="submit">Mentés és továbblépés</button>
           </div>
         </form>
         {message && <p>{message}</p>}

@@ -243,7 +243,7 @@ export default function CreateCvPersonal() {
               <span>.</span>
             </label>
           </div>
-          <button type="submit">Mentés és továbblépés</button>
+          <button className="continue-button" type="submit">Mentés és továbblépés</button>
         </form>
         {message && <p>{message}</p>}
       </div>

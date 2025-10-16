@@ -42,6 +42,8 @@
 }
 
 .button-container {
+  padding-left: 10px;
+  padding-right:10px;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -110,6 +112,28 @@
 .template-form-card-filled {
   max-width:1200px;
 }
+
+
+.btn-payment {
+  display: inline-block;
+  background: linear-gradient(135deg, #7b1fa2, #e91e63);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 3s ease, box-shadow 2s ease, background 2s ease;
+}
+
+.btn-download.available {
+  background: linear-gradient(135deg, #7b1fa2, #e91e63);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 3s ease, box-shadow 2s ease, background 2s ease;
+}
+
+
 
 @media only screen and (min-width:768px) and (max-width:1400px) {
   .create-cv-container {

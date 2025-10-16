@@ -323,7 +323,7 @@ const handleSendEmail = async (userId, templateId) => {
                     {/* Lightbox preview */}
                     <button
                       onClick={() => setPdfModalUrl(pdfUrl)}
-                      className="button button-add-new px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 display-button"
+                      className="button button-add-new inspect-button"
                     >
                       Megtekintés
                     </button>
@@ -337,7 +337,7 @@ const handleSendEmail = async (userId, templateId) => {
                         disabled={hasPaid}
                         title={hasPaid ? "A fizetés már sikeresen megtörtént." : "Fizetés a CV letöltéséhez"}
                       >
-                        {hasPaid ? "Sikeres fizetés" : "Fizetés"}
+                        {hasPaid ? "Kifizetve" : "Fizetés"}
                       </button>
 
                       {/* Download button */}

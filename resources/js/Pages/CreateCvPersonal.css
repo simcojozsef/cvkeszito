@@ -217,8 +217,28 @@ label {
 }
 
 
-
-
+.continue-button {
+  display: inline-block;
+  padding: 16px 48px;
+  margin-top: 2em;
+  background: linear-gradient(135deg, #7b1fa2, #e91e63);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1.6em;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: transform 3s ease, box-shadow 2s ease, background 2s ease;
+}
+.continue-button:hover {
+  background: linear-gradient(135deg, #9c27b0, #ec407a); /* lighter purple → pink */
+}
+.continue-button:active {
+  background: linear-gradient(135deg, #6a0e8a, #d81b60); /* darker purple → magenta */
+  box-shadow: 0 6px 15px rgba(123, 31, 162, 0.25);
+}
 
 
 @media (max-width: 768px) {
