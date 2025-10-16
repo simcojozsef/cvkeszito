@@ -100,6 +100,22 @@
     margin: auto;
     text-align: center;
 }
+.idea {
+  background: linear-gradient(135deg, #7b1fa2, #e91e63);
+  color:white;
+  border-radius:8px;
+  padding:1rem;
+}
+
+.post-page p em {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1em;
+    font-weight:600;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
 
 /* Responsive */
 @media (max-width: 768px) {

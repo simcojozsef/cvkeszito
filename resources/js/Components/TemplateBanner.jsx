@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "./TemplateBanner.css";
 
 const templates = [
-  "https://cvkeszito.hu/images/cv-minta1.jpg",
-  "https://cvkeszito.hu/images/cv-minta2.jpg",
-  "https://cvkeszito.hu/images/cv-minta3.jpg",
-  "https://cvkeszito.hu/images/cv-minta4.jpg",
-  "https://cvkeszito.hu/images/cv-minta5.jpg",
-  "https://cvkeszito.hu/images/cv-minta6.jpg",
+  "https://cvkeszito.hu/images/cv-minta1.JPG",
+  "https://cvkeszito.hu/images/cv-minta2.JPG",
+  "https://cvkeszito.hu/images/cv-minta3.JPG",
+  "https://cvkeszito.hu/images/cv-minta4.JPG",
+  "https://cvkeszito.hu/images/cv-minta5.JPG",
+  "https://cvkeszito.hu/images/cv-minta6.JPG",
 ];
 
 const labels = [
@@ -68,7 +68,7 @@ const TemplateBanner = () => {
         </div>
 
         <p className="template-note">
-          Tekintse meg az összes elérhető professzionális önéletrajz sablont.
+          Készítse el könnyedén önéletrajzát a <a className="create-cv-highlighted" href="https://cvkeszito.hu/createcv/personal-data" target="_blank" rel="noopener noreferrer">CV Készítő online szerkesztőnkkel</a>, és töltse le PDF formátumban!
         </p>
       </div>
 

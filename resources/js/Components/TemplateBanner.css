@@ -146,6 +146,13 @@
     color: black;
 }
 
+.create-cv-highlighted {
+    font-weight: bold;
+    background: linear-gradient(135deg, #7b1fa2, #e91e63);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-underline-offset: 3px;
+}
 @media only screen and (max-width:768px) {
   .template-subtitle {
     width: -webkit-fill-available;

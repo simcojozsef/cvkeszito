@@ -97,6 +97,20 @@ h1 {
   font-size:1em;
 }
 
+.read-more-btn {
+  background: linear-gradient(135deg, #7b1fa2, #e91e63);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
 /* Blog card image */
 .blog-card-image {
   width: 100%;

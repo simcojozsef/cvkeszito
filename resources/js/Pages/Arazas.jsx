@@ -19,28 +19,34 @@ export default function Arazas() {
 
             <div className="pricing-container">
                 {/* Első blokk */}
-                <div className="pricing-card" onClick={handleFirstBlockClick} style={{ cursor: "pointer" }}>
-                    <h2>Készítse el saját profi önéletrajzát</h2>
-                    <ul>
-                        <li><AiOutlineCheck className="check-icon" /> A profi önéletrajz készítése gyerekjáték a tippekkel és trükkökkel teli önéletrajz készítőnk segítségével</li>
-                        <li><AiOutlineCheck className="check-icon" /> Készítse el saját profi kitűnő önéletrajzát mindössze 15 perc alatt.</li>
-                        <li><AiOutlineCheck className="check-icon" /> Önéletrajzait saját személyes és biztonságos fiókjában tárolja. Ez lehetővé teszi az önéletrajzok szerkesztését és letöltését bármikor és bárhol.</li>
-                        <li><AiOutlineCheck className="check-icon" /> Hozzáférhet profi jelentkezési levelek készítéséhez, és illesztheti azokat személyes önéletrajzához.</li>
-                        <li><AiOutlineCheck className="check-icon" /> 14 nap teljes hozzáférés valamennyi funkcióhoz 399 forintért – ez automatikusan megújul 7799 forint/hó díjjal.</li>
-                    </ul>
-                </div>
+                    <div className="pricing-card" onClick={handleFirstBlockClick} style={{ cursor: "pointer" }}>
+                        <h2>Készítse el saját profi önéletrajzát</h2>
+                        <ul>
+                            <li><AiOutlineCheck className="check-icon" /> A profi önéletrajz készítése gyerekjáték önéletrajz készítőnk segítségével.</li>
+                            <li><AiOutlineCheck className="check-icon" /> Mindössze <span className="highlighted-tag">15 perc alatt</span> elkészül.</li>
+                            <li><AiOutlineCheck className="check-icon" /> Fizetést követően letöltheti önéletrajzát <span className="highlighted-tag">PDF formátum</span>ban, melyet elküldhet leendő munkaadójának.</li>
+                            <li><AiOutlineCheck className="check-icon" /> Lehetőség van a személyes önéletrajz átírására.</li>
+                            <li><AiOutlineCheck className="check-icon" /> Az elkészített önéletrajz letöltésének díja <span className="price-tag">egyszeri 2.600 Ft.</span> Fizetést követően válik elérhetővé a letöltés, melyel bármelyik sablon elérhetővé válik.</li>
+                        </ul>
+                        <div className="button-div">
+                            <button className="price-create-cv-button">Most elkészítem</button>
+                        </div>
+                    </div>
 
-                {/* Második blokk */}
-                 <div className="pricing-card" onClick={handleSecondBlockClick} style={{ cursor: "pointer" }}>
-                    <h2>Készíttesse el vagy optimalizálja önéletrajzát</h2>
-                    <ul>
-                        <li><AiOutlineCheck className="check-icon" /> Nehezen készíti el saját önéletrajzát? Vagy csak túl elfoglalt és nincs ideje? Készíttesse vagy optimalizáltassa önéletrajzát egy profi szakemberrel.</li>
-                        <li><AiOutlineCheck className="check-icon" /> Küldje el nekünk aktuális önéletrajzát (vagy a tapasztalatait), és mi elkészítjük önéletrajzát egyik profi sablonunk alapján.</li>
-                        <li><AiOutlineCheck className="check-icon" /> A tartalma profi módon, erőteljesen és egyértelműen át van írva.</li>
-                        <li><AiOutlineCheck className="check-icon" /> 24-48 órán belül önéletrajzát professzionális módon elkészítik vagy optimalizálják, és letöltheti azt személyes fiókjából.</li>
-                        <li><AiOutlineCheck className="check-icon" /> Az önéletrajz készítő CV Készítő fiókkal folyamatosan szerkesztheti az elkészített önéletrajzot, és hozzáfér az összes többi rendelkezésre álló funkcióhoz is.</li>
-                    </ul>
-                </div>
+                    {/* Második blokk */}
+                    <div className="pricing-card" onClick={handleSecondBlockClick} style={{ cursor: "pointer" }}>
+                        <h2>Készíttesse el vagy optimalizálja önéletrajzát</h2>
+                        <ul>
+                            <li><AiOutlineCheck className="check-icon" /> Nehezen készíti el saját önéletrajzát? Vagy csak túl elfoglalt és nincs ideje? Készíttesse vagy optimalizáltassa önéletrajzát egy profi szakemberrel.</li>
+                            <li><AiOutlineCheck className="check-icon" /> Küldje el nekünk aktuális önéletrajzát (vagy a tapasztalatait), és mi elkészítjük önéletrajzát az Ön által kiválasztott profi sablonunk alapján.</li>
+                            <li><AiOutlineCheck className="check-icon" /> A tartalma profi módon, erőteljesen és egyértelműen át van írva.</li>
+                            <li><AiOutlineCheck className="check-icon" /> 24-48 órán belül önéletrajzát professzionális módon elkészítik vagy optimalizálják, majd ezt követően elküldjük Önnek e-mailben.</li>
+                        </ul>
+                        <div className="button-group">
+                            <button className="price-request-expert-button">Rendelés leadása</button>
+                        </div>
+                    </div>
+
             </div>
         </div>
         <Footer/>
