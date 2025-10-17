@@ -1,9 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import Cropper from "react-easy-crop";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './CreateCvPersonal.css';
 import Footer from "../Components/Footer";
 import placeholder from '../../images/profile_placeholder.png';
+import Slider from "@mui/material/Slider";
+import getCroppedImg from "../../utils/cropImage";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+import CloseIcon from '@mui/icons-material/Close';
+import CropIcon from '@mui/icons-material/Crop';
+import SaveIcon from '@mui/icons-material/Save';
+// import UploadFileIcon from '@mui/icons-material/UploadFile';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 // Stepper component
 const steps = [
@@ -88,6 +98,69 @@ export default function CreateCvPersonal() {
     }
   };
 
+
+
+
+
+  //Cropping
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+  const [croppedImage, setCroppedImage] = useState(null);
+
+  // Called when cropping area changes
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels);
+  }, []);
+
+  // Generate cropped image
+  const showCroppedImage = useCallback(async () => {
+    try {
+      const croppedImageBlob = await getCroppedImg(preview, croppedAreaPixels, 500, 500);
+      setCroppedImage(croppedImageBlob);
+
+      // Update form for upload
+      const file = new File([croppedImageBlob], "profile_picture.png", { type: "image/png" });
+      setForm({ ...form, profile_picture: file });
+      setPreview(URL.createObjectURL(croppedImageBlob));
+
+      // Reset zoom
+      setZoom(1); 
+      setCrop({ x: 0, y: 0 }); 
+    } catch (e) {
+      console.error(e);
+    }
+  }, [croppedAreaPixels, preview]);
+
+
+  // Toest saved image feedback to user
+  const [toastOpen, setToastOpen] = useState(false);
+  const handleSaveCrop = async () => {
+    await showCroppedImage(); 
+    setToastOpen(true); 
+  };
+  // Close toast
+  const handleToastClose = (event, reason) => {
+    if (reason === "clickaway") return;
+    setToastOpen(false);
+  };
+
+
+
+  // Reset profile picture function
+  const handleResetProfile = () => {
+    setForm((prev) => ({ ...prev, profile_picture: null })); 
+    setPreview(placeholder); 
+    setCroppedImage(null); 
+    setZoom(1);
+    setCrop({ x: 0, y: 0 });
+  };
+
+
+
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -152,7 +225,7 @@ export default function CreateCvPersonal() {
           <div className="profile-picture-container-outer">
             <p className="profile-picture-label">Profilkép</p>
             <span className="profile-picture-markup">
-              Az ideális megjelenítéshez kérjük, válasszon egy <strong>500 × 500 px méretű, négyzet alakú</strong> .jpeg vagy .png formátumú képet.
+              Kérjük töltse fel a profilképét! (JPG, PNG formátum, max. 10MB)
             </span>
             <div className="profile-picture-container-inner">
               <input
@@ -164,15 +237,66 @@ export default function CreateCvPersonal() {
                 className="file-input"
               />
               <label htmlFor="profilePictureInput" className="file-input-label">
+                <FileUploadIcon style={{ marginRight: '8px', verticalAlign: 'middle' }} />
                 Profilkép kiválasztása
               </label>
 
               <div className="image-preview">
-                <img
-                  src={preview}
-                  alt="Preview"
-                  style={{ width: "120px", height: "120px", borderRadius: "50%" }}
-                />
+                <div className="crop-container" style={{ position: "relative", width: 300, height: 300 }}>
+                    <Cropper
+                      image={preview}
+                      crop={crop}
+                      zoom={zoom}
+                      aspect={1} // ensures square crop
+                      onCropChange={setCrop}
+                      onZoomChange={setZoom}
+                      onCropComplete={onCropComplete}
+                    />
+
+                    {/* Reset icon */}
+                    <CloseIcon
+                      onClick={handleResetProfile}
+                      style={{
+                        position: "absolute",
+                        top: 10,
+                        right: 10,
+                        cursor: "pointer",
+                        color: "#fff",
+                        backgroundColor: "black",
+                        borderRadius: "50%",
+                        padding: 4,
+                        zIndex: 10,
+                      }}
+                    />
+                  </div>
+                  <Slider
+                    value={zoom}
+                    min={1}
+                    max={3}
+                    step={0.1}
+                    onChange={(e, zoom) => setZoom(zoom)}
+                  />
+                  <div className="profile-button-container">
+                    <button type="button" onClick={showCroppedImage} className="icon-button">
+                      <CropIcon />
+                      Átméretezés
+                    </button>
+
+                    <button type="button" onClick={handleSaveCrop} className="icon-button">
+                      <SaveIcon/>
+                      Mentés
+                    </button>
+                  </div>
+                  <Snackbar
+                    open={toastOpen}
+                    autoHideDuration={3000}
+                    onClose={handleToastClose}
+                    anchorOrigin={{ vertical: "center", horizontal: "center" }}
+                  >
+                    <Alert onClose={handleToastClose} severity="success" sx={{ width: '100%' }}>
+                      A profilképet elmentettük.
+                    </Alert>
+                  </Snackbar>
               </div>
             </div>
           </div>

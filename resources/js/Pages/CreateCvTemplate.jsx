@@ -130,7 +130,7 @@ if (!personalData) {
         <StepProgress />
         <div className="createcv-form-card template-form-card-unfilled">
           <h1>Hiányzó adatok</h1>
-          <p>Kérlek töltsd ki a személyes adatokat először.</p>
+          <p>Kérjük előbb töltse ki személyes adatait.</p>
         </div>
       </div>
       <Footer />

@@ -138,6 +138,22 @@
 }
 
 
+
+
+/*Cropping*/
+.image-preview {
+    display: block;
+    background-color: white;
+    padding:1rem;
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.profile-button-container {
+  display:flex; 
+  justify-content:space-between
+}
+
 @media only screen and (min-width:768px) and (max-width:1400px) {
   .create-cv-container {
     display:block;
@@ -147,6 +163,59 @@
   }
 }
 
+
+.file-input-label {
+    display: inline-block;
+    font-size:16px;
+    background: linear-gradient(135deg, #7b1fa2, #e91e63);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    text-decoration: none;
+}
+
+.icon-button {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    align-items: center;
+    gap: 6px;
+    line-height: 1px;
+    padding: 8px 16px!important;
+}
+
+
+/*Slider move*/
+.MuiSlider-track {
+  background: linear-gradient(135deg, #7b1fa2, #e91e63) !important;
+}
+
+.MuiSlider-thumb {
+  background: linear-gradient(135deg, #7b1fa2, #e91e63) !important;
+  box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
+}
+
+.MuiSlider-rail {
+  background-color: linear-gradient(90deg, #626ccc, darkcyan) !important;
+}
+
+
+.MuiAlert-root {
+  display: flex !important;
+  align-items: center !important;
+}
+.MuiAlert-standardSuccess {
+  display: flex !important;
+  align-items: center !important;
+}
+.MuiIconButton-sizeSmall {
+  margin: 0 !important;
+  padding: 6px !important;
+}
 @media only screen and (max-width:768px) {
   .createcv-form-card p {
     font-size: 14px;
