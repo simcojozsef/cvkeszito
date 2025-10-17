@@ -272,7 +272,7 @@ const handleSendEmail = async (userId, templateId) => {
             </span>
           </div>
           <ul className="info-list">
-            <li>Bármelyik sablonnak az ára <strong>2.600 Ft</strong>. Egyszeri fizetés bármelyik kinézetre.</li>
+            <li>Egyszeri ár: <strong>2.600 Ft</strong>. Kifizetést követően bármelyik kinézetet letöltheti.</li>
             <li>Sikeres fizetést követően bármelyik sablonú önéletrajzot letöltheted.</li>
             <li>Önéletrajzot nem tárolunk. Amint elhagyod az oldalt az önéletrajzod elvész, ezért kérjük, hogy sikeres fizetést követően mindenképp töltsd le azt.</li>
             <li>Amint sikeresen végrehajtottad a fizetést a <em>Letöltés</em> gombok elérhetővé válnak, ezáltal hozzáférhetsz önéletrajzodhoz.</li>
@@ -294,7 +294,7 @@ const handleSendEmail = async (userId, templateId) => {
               return (
                 <div
                   key={tpl.id}
-                  className="border-2 rounded-xl p-2 hover:shadow-lg transition duration-200 generated-cv"
+                  className="cv-block-generated"
                 >
                   <h2 className="mt-3 font-semibold">{tpl.name}</h2>
                   <div style={{ width: "100%", height: "auto" }}>

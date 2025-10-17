@@ -210,4 +210,7 @@ Route::get('/success', function () {
     return Inertia::render('PaymentSuccess'); 
 });
 
+Route::get('/cancel', function () {
+    return redirect('https://cvkeszito.hu/createcv/template');
+});
 
