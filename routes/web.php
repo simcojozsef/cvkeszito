@@ -202,7 +202,6 @@ Route::get('/blog/{slug}', function ($slug) {
 
 // Stripe redirect to success page
 Route::get('/success', function () {
-    // Return the React app entry point
     return view('app'); 
 });
 

@@ -121,11 +121,9 @@ hr {
     width: 50%;
 }
 .description-label {
-  padding-top:10px;
+  padding-top:30px;
 }
-.end-date-label {
-  padding-top:10px;
-}
+
 .experience-form-card {
   max-width:700px!important;
 }
@@ -135,6 +133,29 @@ hr {
   padding-right:2em;
 }
 
+
+.experience-data-wrapper {
+  display:flex;
+  justify-content:space-between;
+  gap:1em;
+  padding-top:30px;
+}
+.experience-field-wrapper {
+  width:50%;
+}
+
+.experience-date-wrapper {
+  display:flex;
+  justify-content:space-between;
+  gap:1em;
+  padding-top:30px;
+}
+.experience-startdate-wrapper {
+  width:50%;
+}
+.experience-enddate-wrapper {
+  width:50%;
+}
 @media only screen and (max-width:768px) {
     .button-container {
           flex-wrap: wrap;

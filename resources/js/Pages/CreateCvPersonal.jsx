@@ -301,15 +301,9 @@ export default function CreateCvPersonal() {
             </div>
           </div>
 
-          <p className="personal-data-label">Adatok</p>
-          <input
-            type="text"
-            name="first_name"
-            placeholder="Keresztnév"
-            value={form.first_name}
-            onChange={handleChange}
-            required
-          />
+          <p className="personal-data-label">Személyes adatok:</p>
+          <span className="personal-data-description">Kérjük adja meg személyes adatait, melyeket elhelyezhetünk önéletrajzán.</span>
+          <div className="personal-contact-wrapper">
           <input
             type="text"
             name="last_name"
@@ -318,6 +312,16 @@ export default function CreateCvPersonal() {
             onChange={handleChange}
             required
           />
+          <input
+            type="text"
+            name="first_name"
+            placeholder="Keresztnév"
+            value={form.first_name}
+            onChange={handleChange}
+            required
+          />
+          </div>
+          <div className="personal-contact-wrapper">
           <input
             type="email"
             name="email"
@@ -333,6 +337,7 @@ export default function CreateCvPersonal() {
             value={form.phone}
             onChange={handleChange}
           />
+          </div>
           <input
             type="text"
             name="address"
@@ -340,7 +345,8 @@ export default function CreateCvPersonal() {
             value={form.address}
             onChange={handleChange}
           />
-          <p className="personal-data-label">Bemutatkozás</p>
+          <p className="personal-data-label">Bemutatkozás:</p>
+          <span className="personal-data-description">Kérjük írja le pár szóban mivel foglalkozik.</span>
           <textarea
             name="introduction"
             className="introduction"

@@ -240,6 +240,16 @@ label {
   box-shadow: 0 6px 15px rgba(123, 31, 162, 0.25);
 }
 
+.personal-contact-wrapper {
+  display:flex; 
+  justify-content:center;
+  gap:1rem;
+}
+
+.personal-data-description {
+  font-size:14px;
+  margin-bottom:20px;
+}
 
 @media (max-width: 768px) {
   .terms-checkbox {

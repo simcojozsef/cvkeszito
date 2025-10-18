@@ -111,49 +111,61 @@ export default function CreateCvExperience() {
         <form onSubmit={handleSubmit}>
           {experiences.map((exp, index) => (
             <div key={index} className="experience-item">
-              <label htmlFor={`company_${index}`}>Hol dolgozott?:</label>
-              <input
-                type="text"
-                name="company"
-                placeholder="Cég neve"
-                value={exp.company}
-                onChange={(e) => handleChange(index, e)}
-                required
-                maxLength={40}
-              />
-              <small>
-                {exp.company.length} / 40 karakter
-              </small>
-              <label htmlFor={`position_${index}`}>Milyen pozíciót töltött be?: </label>
-              <input
-                type="text"
-                name="position"
-                placeholder="Pozíció"
-                value={exp.position}
-                onChange={(e) => handleChange(index, e)}
-                required
-                maxLength={40}
-              />
-              <small>
-                {exp.position.length} / 40 karakter
-              </small>
-              <label htmlFor={`start_date_${index}`}>Kezdés dátuma:</label>
-              <input
-                type="date"
-                name="start_date"
-                placeholder="Kezdés dátuma"
-                value={exp.start_date}
-                onChange={(e) => handleChange(index, e)}
-                required
-              />
-              <label className="end-date-label" htmlFor={`end_date_${index}`}>Befejezés dátuma:</label>
-              <input
-                type="date"
-                name="end_date"
-                placeholder="Befejezés dátuma"
-                value={exp.end_date}
-                onChange={(e) => handleChange(index, e)}
-              />
+              <div className="experience-data-wrapper">
+                <div className="experience-field-wrapper">
+                  <label htmlFor={`company_${index}`}>Hol dolgozott?:</label>
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Cég neve"
+                    value={exp.company}
+                    onChange={(e) => handleChange(index, e)}
+                    required
+                    maxLength={40}
+                  />
+                  <small>
+                    {exp.company.length} / 40 karakter
+                  </small>
+                </div>
+                <div className="experience-field-wrapper">
+                  <label htmlFor={`position_${index}`}>Milyen pozíciót töltött be?: </label>
+                  <input
+                    type="text"
+                    name="position"
+                    placeholder="Pozíció"
+                    value={exp.position}
+                    onChange={(e) => handleChange(index, e)}
+                    required
+                    maxLength={40}
+                  />
+                  <small>
+                    {exp.position.length} / 40 karakter
+                  </small>
+                </div>
+              </div>
+              <div className="experience-date-wrapper">
+                <div className="experience-startdate-wrapper">
+                  <label htmlFor={`start_date_${index}`}>Kezdés dátuma:</label>
+                  <input
+                    type="date"
+                    name="start_date"
+                    placeholder="Kezdés dátuma"
+                    value={exp.start_date}
+                    onChange={(e) => handleChange(index, e)}
+                    required
+                  />
+                </div>
+                <div className="experience-enddate-wrapper">
+                  <label className="end-date-label" htmlFor={`end_date_${index}`}>Befejezés dátuma:</label>
+                  <input
+                    type="date"
+                    name="end_date"
+                    placeholder="Befejezés dátuma"
+                    value={exp.end_date}
+                    onChange={(e) => handleChange(index, e)}
+                  />
+                </div>
+              </div>
               <label className="description-label" htmlFor={`description_${index}`}>Milyen feladatokat látott el?: </label>
               <textarea
                 name="description"
