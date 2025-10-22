@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './CreateCvEducation.css';
 import Footer from "../Components/Footer";
+import { Check } from "lucide-react";
 
 const steps = [
   { label: "Adatok", path: "/createcv/personal-data" },
@@ -46,15 +47,23 @@ export default function CreateCvEducation() {
   const personal_data_id = savedPersonalData?.id;
 
   const [educations, setEducations] = useState([
-    { school: "", degree: "", field_of_study: "", start_date: "", end_date: "", description: "" },
+    { school: "", degree: "", field_of_study: "", start_date: "", end_date: "", description: "", current: false },
   ]);
   const [message, setMessage] = useState("");
 
   const handleChange = (index, e) => {
-    const newEducations = [...educations];
-    newEducations[index][e.target.name] = e.target.value;
-    setEducations(newEducations);
-  };
+  const newEducations = [...educations];
+  const { name, value, type, checked } = e.target;
+
+  if (name === "current") {
+    newEducations[index][name] = checked;
+    if (checked) newEducations[index].end_date = ""; 
+  } else {
+    newEducations[index][name] = value;
+  }
+
+  setEducations(newEducations);
+};
 
   const maxItems = 3;
   const handleAdd = () => {
@@ -109,27 +118,34 @@ export default function CreateCvEducation() {
         <form onSubmit={handleSubmit}>
           {educations.map((edu, index) => (
             <div key={index} className="education-item">
-              <label htmlFor={`school_${index}`}>Hol tanult?</label>
-              <input
-                type="text"
-                name="school"
-                placeholder="Intézmény neve"
-                value={edu.school}
-                onChange={(e) => handleChange(index, e)}
-                required
-                maxLength={40}
-              />
-              <small>{edu.school.length} / 40 karakter</small>
-              <label htmlFor={`degree_${index}`}>Milyen érettségit vagy diplomát szerzett?</label>
-              <input
-                type="text"
-                name="degree"
-                placeholder="Érettségi / Diploma"
-                value={edu.degree}
-                onChange={(e) => handleChange(index, e)}
-                maxLength={40}
-              />
-              <small>{edu.degree.length} / 40 karakter</small>
+              <div className="education-data-wrapper">
+                <div className="education-field-wrapper">
+                  <label htmlFor={`school_${index}`}>Hol tanult?</label>
+                  <input
+                    type="text"
+                    name="school"
+                    placeholder="Intézmény neve"
+                    value={edu.school}
+                    onChange={(e) => handleChange(index, e)}
+                    required
+                    maxLength={40}
+                  />
+                  <small>{edu.school.length} / 40 karakter</small>
+                </div>
+                <div className="education-field-wrapper">
+                <label htmlFor={`degree_${index}`}>Érettségit vagy diplomát szerzett?</label>
+                <input
+                  type="text"
+                  name="degree"
+                  placeholder="Érettségi / Diploma"
+                  value={edu.degree}
+                  onChange={(e) => handleChange(index, e)}
+                  maxLength={40}
+                />
+                <small>{edu.degree.length} / 40 karakter</small>
+                </div>
+              </div>
+              <div className="field-of-study-wrapper">
               <label htmlFor={`field_of_study_${index}`}>Milyen szakon vagy tanulmányi területen tanult?</label>
               <input
                 type="text"
@@ -140,23 +156,51 @@ export default function CreateCvEducation() {
                 maxLength={40}
               />
               <small>{edu.field_of_study.length} / 40 karakter</small>
-              <label htmlFor={`start_date_${index}`}>Kezdés ideje: </label>
-              <input
-                type="date"
-                name="start_date"
-                placeholder="Kezdés dátuma"
-                value={edu.start_date}
-                onChange={(e) => handleChange(index, e)}
-                required
-              />
-              <label className="education-end-date-label" htmlFor={`end_date_${index}`}>Végzés ideje: </label>
-              <input
-                type="date"
-                name="end_date"
-                placeholder="Befejezés dátuma"
-                value={edu.end_date}
-                onChange={(e) => handleChange(index, e)}
-              />
+              </div>
+
+              <div className="education-data-wrapper">
+                <div className="education-field-wrapper">
+                <label htmlFor={`start_date_${index}`}>Kezdés ideje: </label>
+                <input
+                  type="date"
+                  name="start_date"
+                  placeholder="Kezdés dátuma"
+                  value={edu.start_date}
+                  onChange={(e) => handleChange(index, e)}
+                  required
+                />
+                </div>
+                <div className="education-field-wrapper">
+                {/*Education enddate start*/}
+                  <div className="education-enddate-wrapper">
+                    <label className="end-date-label" htmlFor={`end_date_${index}`}>Végzés ideje:</label>
+                    <input
+                      type="date"
+                      name="end_date"
+                      placeholder="Végzés dátuma"
+                      value={edu.end_date}
+                      onChange={(e) => handleChange(index, e)}
+                      disabled={edu.current} 
+                    />
+                    <label className="current-checkbox">
+                      <div
+                        className={`custom-checkbox ${edu.current ? "checked" : ""}`}
+                        onClick={(e) => {
+                          e.preventDefault(); 
+                          handleChange(index, {
+                            target: { name: "current", checked: !edu.current },
+                          });
+                        }}
+                      >
+                        {edu.current && <Check size={14} strokeWidth={3} />}
+                      </div>
+                      <span>Jelenleg itt tanulok.</span>
+                    </label>
+                  </div>
+                  {/*Education enddate end*/}
+                </div>
+              </div>
+
               <label className="education-description-label" htmlFor={`description_${index}`}>Milyen tanulmányt folytatott?</label>
               <textarea
                 name="description"

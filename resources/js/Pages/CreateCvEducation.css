@@ -128,12 +128,26 @@ hr {
   padding-left:2em;
   padding-right:2em;
 }
+
 .education-description-label {
   padding-top:10px;
 }
-.education-end-date-label {
-  padding-top:10px;
+
+.education-data-wrapper {
+  display:flex;
+  justify-content:space-between;
+  gap:1em;
+  padding-top:20px;
 }
+
+.education-field-wrapper {
+  width:50%;
+}
+
+.field-of-study-wrapper {
+  padding-top:20px;
+}
+
 @media only screen and (max-width:768px) {
     .button-container {
           flex-wrap: wrap;

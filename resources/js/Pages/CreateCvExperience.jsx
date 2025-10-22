@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './CreateCvExperience.css';
 import Footer from "../Components/Footer";
+import { Check } from "lucide-react";
 
 const steps = [
   { label: "Adatok", path: "/createcv/personal-data" },
@@ -47,15 +48,23 @@ export default function CreateCvExperience() {
   const personal_data_id = savedPersonalData?.id;
 
   const [experiences, setExperiences] = useState([
-    { company: "", position: "", start_date: "", end_date: "", description: "" },
+    { company: "", position: "", start_date: "", end_date: "", description: "", current: false },
   ]);
   const [message, setMessage] = useState("");
 
   const handleChange = (index, e) => {
-    const newExperiences = [...experiences];
-    newExperiences[index][e.target.name] = e.target.value;
-    setExperiences(newExperiences);
-  };
+  const newExperiences = [...experiences];
+  const { name, value, type, checked } = e.target;
+
+  if (name === "current") {
+    newExperiences[index][name] = checked;
+    if (checked) newExperiences[index].end_date = "";
+  } else {
+    newExperiences[index][name] = value;
+  }
+
+  setExperiences(newExperiences);
+};
 
   const maxItems = 3;
   const handleAdd = () => {
@@ -89,7 +98,7 @@ export default function CreateCvExperience() {
     sessionStorage.setItem("experiences", JSON.stringify(experiences));
 
     setMessage("Experiences saved successfully!");
-    navigate("/createcv/education"); // go to next step
+    navigate("/createcv/education"); 
   } catch (error) {
     if (error.response?.data?.errors) {
       setMessage(Object.values(error.response.data.errors).join(" "));
@@ -155,6 +164,7 @@ export default function CreateCvExperience() {
                     required
                   />
                 </div>
+                {/*Experience enddate start*/}
                 <div className="experience-enddate-wrapper">
                   <label className="end-date-label" htmlFor={`end_date_${index}`}>Befejezés dátuma:</label>
                   <input
@@ -163,8 +173,23 @@ export default function CreateCvExperience() {
                     placeholder="Befejezés dátuma"
                     value={exp.end_date}
                     onChange={(e) => handleChange(index, e)}
+                    disabled={exp.current} 
                   />
+                  <label className="current-checkbox">
+                    <div
+                      className={`custom-checkbox ${exp.current ? "checked" : ""}`}
+                      onClick={() =>
+                        handleChange(index, {
+                          target: { name: "current", checked: !exp.current },
+                        })
+                      }
+                    >
+                      {exp.current && <Check size={14} strokeWidth={3} />}
+                    </div>
+                    <span>Jelenleg itt dolgozom.</span>
+                  </label>
                 </div>
+                {/*Experience enddate end*/}
               </div>
               <label className="description-label" htmlFor={`description_${index}`}>Milyen feladatokat látott el?: </label>
               <textarea
