@@ -103,7 +103,6 @@ const posts = [
       <p>🔗 <strong>Készen áll az önéletrajz elkészítésére?</strong> Próbálja ki 
           <a href="https://cvkeszito.hu/createcv/personal-data" target="_blank" rel="noopener noreferrer" style="
               font-weight: bold;
-              background: linear-gradient(135deg, #7b1fa2, #e91e63);
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               text-decoration: underline;

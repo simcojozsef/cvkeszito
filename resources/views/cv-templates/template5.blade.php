@@ -13,13 +13,10 @@
             @page {
                 margin: 0;
             }
-
             body {
                 margin: 0;
                 padding: 0;
-            }
-
-            
+            }     
         </style>
     </head>
     <body>
@@ -42,7 +39,7 @@
   </div>
   <div data-layer="Rectangle 10" class="Rectangle10" style="width: 677px; height: 1020px; left: 55px; top: 52px; position: absolute; background: #F4F4F4; box-shadow: 14.423982620239258px 12.01998519897461px 0px #FFE975; border-radius: 24.04px"></div>
   <div data-layer="Avatar" class="Avatar" style="width: 200px; height: 200px; left: 505px; top: 78px; position: absolute">
-    <div data-layer="Rectangle 404" class="Rectangle404" style="width: 180px; height: 182.80px; left: 12px; top: 7.20px; position: absolute; background: #D57086; border-radius: 7.20px"></div>
+    <div data-layer="Rectangle 404" class="Rectangle404" style="width: 180px; height: 182.80px; left: 12px; top: 7.20px; position: absolute; border-radius: 7.20px"></div>
     <div data-layer="CONTACT_PROFILE" class="ContactProfile" style="width: 180px; height: 182.80px; left: 0px; top: -6px; position: absolute; background: #D9D9D9; border-radius: 7.21px">
         @if(!empty($personalData->profile_picture) && file_exists(public_path('storage/' . $personalData->profile_picture)))
             @php
@@ -64,10 +61,10 @@
   <div data-layer="CONTACT_PHONE" class="ContactPhone" style="width: 158.66px; height: 16.83px; left: 112.01px; top: 134px; position: absolute; color: #0B0B0B; font-size: 12px; font-family: Lato; font-weight: 500; line-height: 18px; word-wrap: break-word">{{ $personalData->phone }}</div>
   <div data-layer="CONTACT_ADDRESS" class="ContactAddress" style="width: 374.89px; height: 16.83px; left: 112.01px; top: 163px; position: absolute; color: #0B0B0B; font-size: 12px; font-family: Lato; font-weight: 500; line-height: 18px; word-wrap: break-word">{{ $personalData->address }}</div>
   <div data-layer="CONTACT_EMAIL" class="ContactEmail" style="width: 200px; height: 17px; left: 287px; top: 134px; position: absolute; color: #0B0B0B; font-size: 12px; font-family: Lato; font-weight: 500; line-height: 18px; word-wrap: break-word">{{ $personalData->email }}</div>
-  <div data-layer="Rectangle 402" class="Rectangle402" style="width: 284px; height: 176px; left: 113px; top: 394px; position: absolute; background: #23C88E; border-radius: 7.21px"></div>
+  <div data-layer="Rectangle 402" class="Rectangle402" style="width: 284px; height: 176px; left: 113px; top: 394px; position: absolute; border-radius: 7.21px"></div>
   <!-- EXPERIENCE BLOCKS -->
 @php
-    $experience_bg_colors = ['#A8E6CF', '#CFFFB3', '#D0F0C0']; // lighter pastel greens
+    $experience_bg_colors = ['#ffffffff', '#ffffffff', '#ffffffff']; // lighter pastel greens
 @endphp
 
 @foreach($experiences as $index => $exp)
@@ -91,7 +88,7 @@
 
 <!-- EDUCATION BLOCKS -->
 @php
-    $education_bg_colors = ['#D6C7FF', '#E1D4FF', '#EADFFF']; // lighter pastel purples
+    $education_bg_colors = ['#ffffffff', '#ffffffff', '#ffffffff']; // lighter pastel purples
 @endphp
 
 @foreach($educations as $index => $edu)
@@ -100,7 +97,7 @@
         $top_offset = 385 + ($index * 200); // increased spacing between each block
     @endphp
     <div class="EducationBlock" 
-         style="width: 286px; height: 176px; left: 416px; top: {{ $top_offset }}px; position: absolute; background: {{ $bg_color }}; border-radius: 7.21px; box-shadow: 9px 9px 0px #928CF8; outline: 0.6px black solid; outline-offset: -0.3px; padding: 10px;">
+         style="width: 286px; height: 176px; left: 416px; top: {{ $top_offset }}px; position: absolute; background: {{ $bg_color }}; border-radius: 7.21px; outline: 0.6px black solid; outline-offset: -0.3px; padding: 10px;">
         <div class="EducationDate" style="color: #595959; font-size: 10px; font-family: Source Sans Pro; font-weight: 400; line-height: 14px;">
             {{ $edu->start_date }} - {{ $edu->end_date ?? 'Jelenleg' }}
         </div>

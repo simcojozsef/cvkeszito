@@ -145,6 +145,9 @@ if (!personalData) {
     { id: "template4", name: "4. Artisztikus" },
     { id: "template5", name: "5. Színes" },
     { id: "template6", name: "6. Lágy" },
+    { id: "template7", name: "7. X" },
+    { id: "template8", name: "8. X" },
+    { id: "template9", name: "9. X" }
   ];
 
   const rows = [];

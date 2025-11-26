@@ -56,7 +56,7 @@
     $max_items = 3;
     $experience_spacing = 110; // korábban 80, most nagyobb, hogy több hely legyen
     $experience_description_offset = 50; // description offset az előző subtitle-hoz képest
-    $base_experience_top = 338;
+    $base_experience_top = 335;
 
     $education_spacing_after_experience = 50; // extra távolság a tapasztalatok és a tanulmányok között
     $education_base_top = $base_experience_top + (count($experiences->take($max_items)) * $experience_spacing) + $education_spacing_after_experience;

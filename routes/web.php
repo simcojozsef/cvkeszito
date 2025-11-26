@@ -96,21 +96,6 @@ Route::get('/createcv/template', function () {
 
 
 
-/* Create route for pdf generation*/
-Route::get('/cv/pdf/{id}', function ($id) {
-    $personalData = PersonalData::with(['experiences', 'educations'])->findOrFail($id);
-
-    $pdf = Pdf::loadView('cv-template', [
-        'personalData' => $personalData,
-        'experiences' => $personalData->experiences,
-        'educations' => $personalData->educations,
-        'defaultFont' => 'Montserrat',
-    ]);
-
-    return $pdf->stream('cv.pdf'); 
-});
-
-
 
 /* template routes */
 
@@ -118,7 +103,7 @@ Route::get('/cv/pdf/{id}', function ($id) {
 Route::get('/cv/pdf/{id}/{template}', function ($id, $template) {
     $personalData = PersonalData::with(['experiences', 'educations'])->findOrFail($id);
 
-    $availableTemplates = ['template1','template2','template3','template4','template5','template6'];
+    $availableTemplates = ['template1','template2','template3','template4','template5','template6', 'template7','template8','template9'];
     if (!in_array($template, $availableTemplates)) {
         abort(404, 'A sablont nem találtuk.');
     }
@@ -130,6 +115,9 @@ Route::get('/cv/pdf/{id}/{template}', function ($id, $template) {
         'template4' => 'Poppins',
         'template5' => 'Source Sans Pro',
         'template6' => 'Prata',
+        'template7' => 'Montserrat',
+        'template8' => 'Montserrat',
+        'template9' => 'Montserrat',
     ];
 
     $defaultFont = $fonts[$template] ?? 'Montserrat';
@@ -156,12 +144,28 @@ Route::get('/cv/pdf/{id}/{template}', function ($id, $template) {
 
 
 
+/* Create route for pdf generation*/
+Route::get('/cv/pdf/{id}', function ($id) {
+    $personalData = PersonalData::with(['experiences', 'educations'])->findOrFail($id);
+
+    $pdf = Pdf::loadView('cv-template', [
+        'personalData' => $personalData,
+        'experiences' => $personalData->experiences,
+        'educations' => $personalData->educations,
+        'defaultFont' => 'Montserrat',
+    ]);
+
+    return $pdf->stream('cv.pdf'); 
+});
+
+
+
 
 // html routes
 Route::get('/cv/html/{id}/{template}', function ($id, $template) {
     $personalData = PersonalData::with(['experiences', 'educations'])->findOrFail($id);
 
-    $availableTemplates = ['template1','template2','template3','template4','template5','template6'];
+    $availableTemplates = ['template1','template2','template3','template4','template5','template6', 'template7','template8','template9'];
     if (!in_array($template, $availableTemplates)) {
         abort(404, 'A sablont nem találtuk.');
     }
