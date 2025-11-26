@@ -6,7 +6,7 @@
         <title>CV - {{ $personalData->first_name }} {{ $personalData->last_name }}</title>
 
         <!-- Montserrat with latin-ext (Hungarian support) -->
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap&subset=latin-ext" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap&subset=latin-ext" rel="stylesheet">
 
     <style>
         @page { margin: 0; }
