@@ -1,136 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Professional Resume</title>
+    <meta charset="UTF-8">
+    <title>CV - {{ $personalData->first_name }} {{ $personalData->last_name }}</title>
 
-<style>
-    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+    <!-- Poppins + Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap&subset=latin-ext" rel="stylesheet">
 
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-    }
-
-    main {
-        width: 794px;  /* A4 width in px at 96dpi */
-        height: 1123px; /* A4 height in px at 96dpi */
-        position: relative;
-        margin: auto;
-        overflow: hidden;
-        background-image: url('img/BACKGROUND.png');
-        background-size: cover;
-        background-position: center;
-        page-break-after: avoid;
-    }
-
-    img {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-
-    .contact-header,
-    .experience-section,
-    .education-section {
-        padding: 10px 40px;
-    }
-
-    .PROFILE-PICTURE {
-        position: absolute;
-        top: 30px;
-        right: 50px;
-        width: 200px;
-        height: 200px;
-    }
-
-    .CONTACT-NAME { margin-top: 70px; width: 300px; }
-    .CONTACT-PHONE { margin-top: 10px; }
-    .CONTACT-EMAIL { margin-top: 5px; }
-    .CONTACT-INTRODUCTION { margin-top: 20px; width: 350px; }
-
-    h2 {
-        margin-top: 40px;
-        margin-bottom: 10px;
-    }
-
-    .experience-item, .education-item {
-        margin-bottom: 20px;
-    }
-
-    /* Prevent page break inside the main container */
-    @media print {
-        body, main {
-            width: 794px;
-            height: 1123px;
-            overflow: hidden;
-        }
-    }
-</style>
+    <style>
+        @page { margin: 0; }
+        body { margin: 0; padding: 0; }
+    </style>
 </head>
+
 <body>
-<main>
-    <aside class="PROFILE-PICTURE">
-        <img src="img/PROFILE-PICTURE.png" alt="Profile picture">
-    </aside>
 
-    <header class="contact-header">
-        <h1 class="CONTACT-NAME">
-            <img src="img/CONTACT-NAME.png" alt="Contact Name" />
-        </h1>
-        <div class="CONTACT-PHONE">
-            <img src="img/CONTACT-PHONE.png" alt="Phone number" />
-        </div>
-        <div class="CONTACT-EMAIL">
-            <img src="img/CONTACT-EMAIL.png" alt="Email" />
-        </div>
-        <p class="CONTACT-INTRODUCTION">
-            <img src="img/CONTACT-INTRODUCTION.png" alt="Professional introduction" />
-        </p>
-    </header>
+<div data-layer="BACKGROUND" style="width:794px;height:1123px;position:relative;background:#F6F8FD;">
 
-    <section class="experience-section">
-        <h2 class="EXPERIENCE-TITLE">
-            <img src="img/EXPERIENCE-TITLE.png" alt="Experience" />
-        </h2>
-        <div class="experience-item">
-            <h3 class="EXPERIENCE-COMPANY">
-                <img src="img/EXPERIENCE-COMPANY.png" alt="Company name" />
-            </h3>
-            <h4 class="EXPERIENCE-POSITION">
-                <img src="img/EXPERIENCE-POSITION.png" alt="Position" />
-            </h4>
-            <time class="EXPERIENCE-DATE">
-                <img src="img/EXPERIENCE-DATE.png" alt="Employment dates" />
-            </time>
-            <p class="EXPERIENCE">
-                <img src="img/EXPERIENCE-DESCRIPTION.png" alt="Experience description" />
-            </p>
-        </div>
-    </section>
+    <!-- SVG DECORATIONS (ALL ORIGINAL FROM THE FIRST BLOCK) -->
+    <!-- --- These are unchanged SVG containers --- -->
 
-    <section class="education-section">
-        <h2 class="EDUCATION-TITLE">
-            <img src="img/EDUCATION-TITLE.png" alt="Education" />
-        </h2>
-        <div class="education-item">
-            <h3 class="EDUCATION-SCHOOL">
-                <img src="img/EDUCATION-SCHOOL.png" alt="School name" />
-            </h3>
-            <h4 class="EDUCATION-FIELD-OF">
-                <img src="img/EDUCATION-FIELD-OF-STUDY.png" alt="Field of study" />
-            </h4>
-            <time class="EDUCATION-DATE">
-                <img src="img/EDUCATION-DATE.png" alt="Education dates" />
-            </time>
-            <p class="EDUCATION">
-                <img src="img/EDUCATION-DESCRIPTION.png" alt="Education description" />
-            </p>
+    <div style="position:absolute;left:413.98px;top:810.26px;">
+        {!! file_get_contents(resource_path('views/cv-templates/svg/vector1.svg')) !!}
+    </div>
+
+    <div style="position:absolute;left:0px;top:896px;">
+        {!! file_get_contents(resource_path('views/cv-templates/svg/vector2.svg')) !!}
+    </div>
+
+    <div style="position:absolute;left:493.6px;top:902.27px;">
+        {!! file_get_contents(resource_path('views/cv-templates/svg/vector3.svg')) !!}
+    </div>
+
+    <div style="position:absolute;left:31.38px;top:920.45px;">
+        {!! file_get_contents(resource_path('views/cv-templates/svg/vector4.svg')) !!}
+    </div>
+
+    <div style="position:absolute;left:135.28px;top:922.12px;">
+        {!! file_get_contents(resource_path('views/cv-templates/svg/vector5.svg')) !!}
+    </div>
+
+    <div style="position:absolute;left:314.94px;top:932.32px;">
+        {!! file_get_contents(resource_path('views/cv-templates/svg/vector6.svg')) !!}
+    </div>
+
+    <div style="position:absolute;left:396.01px;top:0px;">
+        {!! file_get_contents(resource_path('views/cv-templates/svg/vector7.svg')) !!}
+    </div>
+
+    <div style="position:absolute;left:505.12px;top:55.10px;">
+        {!! file_get_contents(resource_path('views/cv-templates/svg/vector8.svg')) !!}
+    </div>
+
+    <div style="position:absolute;left:352.43px;top:31.05px;">
+        {!! file_get_contents(resource_path('views/cv-templates/svg/vector9.svg')) !!}
+    </div>
+
+
+    <!-- PROFILE PICTURE -->
+    <div style="width:200px;height:200px;left:528px;top:31px;position:absolute;background:#E4E4E4;border-radius:250px;overflow:hidden;">
+        @if(!empty($personalData->profile_picture) && file_exists(public_path('storage/' . $personalData->profile_picture)))
+            @php
+                $imagePath = public_path('storage/' . $personalData->profile_picture);
+                $imageData = base64_encode(file_get_contents($imagePath));
+                $imageExt = pathinfo($imagePath, PATHINFO_EXTENSION);
+            @endphp
+
+            <img src="data:image/{{ $imageExt }};base64,{{ $imageData }}"
+                 style="width:100%;height:100%;object-fit:cover;border-radius:250px;">
+        @endif
+    </div>
+
+
+    <!-- CONTACT NAME -->
+    <div style="left:50px;top:56px;position:absolute;color:#00356B;font-size:32px;font-family:Poppins;font-weight:700;text-transform:capitalize;">
+        {{ $personalData->first_name }} {{ $personalData->last_name }}
+    </div>
+
+    <!-- CONTACT PHONE -->
+    <div style="left:50px;top:131px;position:absolute;color:rgba(0,53,107,0.70);font-size:14px;font-family:Roboto;font-weight:500;">
+        {{ $personalData->phone }}
+    </div>
+
+    <!-- CONTACT EMAIL -->
+    <div style="left:202px;top:131px;position:absolute;color:rgba(0,53,107,0.70);font-size:14px;font-family:Roboto;font-weight:500;text-decoration:underline;">
+        {{ $personalData->email }}
+    </div>
+
+    <!-- CONTACT INTRODUCTION -->
+    <div style="width:310px;left:50px;top:181px;position:absolute;color:rgba(0,0,0,0.70);font-size:11px;font-family:Poppins;font-weight:600;">
+        {{ $personalData->introduction }}
+    </div>
+
+
+    <!-- EXPERIENCE TITLE -->
+    <div style="left:50px;top:271px;position:absolute;color:rgba(0,53,107,0.70);font-size:15px;font-family:Poppins;font-weight:700;">
+        Tapasztalat
+    </div>
+
+    @php
+        $max_items = 3;
+        $y = 309;
+        $block_spacing = 120; 
+    @endphp
+
+    @foreach($experiences->take($max_items) as $exp)
+        <div style="left:50px;top:{{ $y }}px;position:absolute;color:black;font-size:10px;font-family:Poppins;font-weight:700;">
+            {{ $exp->company }}
         </div>
-    </section>
-</main>
+
+        <div style="left:50px;top:{{ $y + 15 }}px;position:absolute;color:black;font-size:9px;font-family:Poppins;font-weight:400;">
+            {{ $exp->position }}
+        </div>
+
+        <div style="left:50px;top:{{ $y + 35 }}px;position:absolute;color:rgba(0,0,0,0.70);font-size:9px;font-family:Poppins;">
+            {{ $exp->start_date }} – {{ $exp->end_date ?? 'Jelenleg' }}
+        </div>
+
+        <div style="width:683px;left:50px;top:{{ $y + 50 }}px;position:absolute;color:rgba(0,0,0,0.70);font-size:9px;font-family:Poppins;line-height:13px;">
+            {!! nl2br(e($exp->description)) !!}
+        </div>
+
+        @php $y += $block_spacing; @endphp
+    @endforeach
+
+
+    <!-- EDUCATION TITLE -->
+    <div style="left:50px;top:584px;position:absolute;color:rgba(0,53,107,0.70);font-size:15px;font-family:Poppins;font-weight:700;">
+        Tanulmányok
+    </div>
+
+    @php
+        $yEdu = 622;
+    @endphp
+
+    @foreach($educations->take($max_items) as $edu)
+        <div style="left:50px;top:{{ $yEdu }}px;position:absolute;color:black;font-size:10px;font-family:Poppins;font-weight:700;">
+            {{ $edu->school }}
+        </div>
+
+        <div style="left:50px;top:{{ $yEdu + 15 }}px;position:absolute;color:black;font-size:9px;font-family:Poppins;">
+            {{ $edu->field_of_study }}
+        </div>
+
+        <div style="left:50px;top:{{ $yEdu + 30 }}px;position:absolute;color:rgba(0,0,0,0.70);font-size:9px;font-family:Poppins;">
+            {{ $edu->start_date }} – {{ $edu->end_date ?? 'Jelenleg' }}
+        </div>
+
+        <div style="width:683px;left:50px;top:{{ $yEdu + 50 }}px;position:absolute;color:rgba(0,0,0,0.70);font-size:9px;font-family:Poppins;line-height:13px;">
+            {!! nl2br(e($edu->description)) !!}
+        </div>
+
+        @php $yEdu += $block_spacing; @endphp
+    @endforeach
+
+</div>
+
 </body>
 </html>
